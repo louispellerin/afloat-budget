@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+salary:
+  description: salary
+  amount: 1500.00
+  base_date: 2009-01-01
+  frequency: 2
+
+mortgage:
+  description: mortgage
+  amount: 300
+  base_date: 2009-01-15
+  frequency: 1

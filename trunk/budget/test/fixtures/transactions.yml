@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+thirty_dollars:
+  description: 30 dollars
+  date: 2009-01-31
+  amount: 20.00
+  processed: false
+
+twenty_dollars:
+  description: 20 dollars
+  date: 2009-01-31
+  amount: 20.00
+  processed: false
