@@ -1,0 +1,27 @@
+<h1>New recurring_transaction</h1>
+
+<% form_for(@recurring_transaction) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.label :base_date %><br />
+    <%= f.date_select :base_date %>
+  </p>
+  <p>
+    <%= f.label :frequency %><br />
+    <%= f.text_field :frequency %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', recurring_transactions_path %>

@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="/stylesheets/blueprint/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/stylesheets/blueprint/blueprint/print.css" type="text/css" media="print">
+    <!--[if IE]><link rel="stylesheet" href="/stylesheets/blueprint/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <title>Periods: <%= controller.action_name %></title>
+  </head>
+  <body>
+    <div class="container showgrid">
+      <p style="color: green"><%= flash[:notice] %></p>
+
+      <%= yield  %>
+
+    </div>
+  </body>
+</html>
