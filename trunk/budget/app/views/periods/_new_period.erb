@@ -1,0 +1,22 @@
+<div class="span-13">
+  <table  border="0" cellspacing="0" cellpadding="0">
+    <caption><em>Create a new period</em></caption>
+    <thead>
+      <tr>
+        <th class="span-6">Start Date</th>
+        <th class="span-6">End Date</th>
+        <th class="span-1 last"/>
+      </tr>
+    </thead>
+    <tbody>
+      <% form_for [@period] do |f| -%>
+        <tr>
+          <td><%= f.date_select :start_date %></td>
+          <td><%= f.date_select :end_date %></td>
+          <td><%= f.submit "Add" %></td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>
+<br />
