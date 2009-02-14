@@ -48,10 +48,10 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.save
         flash[:notice] = 'Transaction was successfully created.'
-        format.html { redirect_to(@period) }
+        format.html { redirect_to(period_transactions_path(@transaction.period)) }
       else
         flash[:error] = @transaction.errors.full_messages.to_sentence
-        format.html { redirect_to(@period) }
+        format.html { redirect_to(period_transactions_path(@transaction.period)) }
       end
     end
   end
@@ -76,12 +76,12 @@ class TransactionsController < ApplicationController
   # DELETE /transactions/1
   # DELETE /transactions/1.xml
   def destroy
-    @period = Period.find(params[:period_id])
     @transaction = Transaction.find(params[:id])
+    @period = @transaction.period
     @transaction.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@period) }
+      format.html { redirect_to(period_transactions_path(@period)) }
       format.xml  { head :ok }
     end
   end
