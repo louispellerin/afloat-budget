@@ -1,39 +1,28 @@
-<p style="color: red"><%= flash[:error] %></p>
 <div class="span-20">
   <table border="0" cellspacing="0" cellpadding="0">
+    <caption><em>Processed Transactions</em></caption>
     <thead>
       <tr>
-        <th class="span-6">Transaction</th>
+        <th class="span-10">Transaction</th>
         <th class="span-6">Date</th>
         <th class="span-2">Amount</th>
-        <th class="span-1">Processed</th>
+        <th class="span-1"/>
         <th class="span-1 last"/>
       </tr>
     </thead>
     <tfoot>
-      <tr>     
+      <tr>
         <td colspan="14">Total:
-          <%= number_to_currency(period.total_transactions) %>
+          <%= number_to_currency(period.processed_transactions_total) %>
         </td>
       </tr>
     </tfoot>
     <tbody>
-      <% form_for [period, transaction] do |f| -%>
-        <tr>
-          <td><%= f.text_field :description, :class => "text span-6" %></td>
-          <td><%= f.date_select :date, :class => "span-6"%></td>
-          <td><%= f.text_field :amount, :class => "text span-2" %></td>
-          <td><%= f.check_box :processed %></td>
-          <td><%= f.submit "Add" %></td>
-        </tr>
-      <% end -%>
-
-      <% for t in transactions -%>
+      <% for t in period.processed_transactions -%>
         <tr id="<%= dom_id(t) %>">
           <td><%= t.description %></td>
           <td><%= t.date %></td>
           <td><%= number_to_currency(t.amount) %></td>
-          <td><%= t.processed %></td>
           <td><%= link_to 'Edit', edit_transaction_path(t) %></td>
           <td><%= link_to 'Destroy', [t], :confirm => 'Are you sure?', :method => :delete %></td>
         </tr>
