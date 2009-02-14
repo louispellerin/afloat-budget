@@ -3,6 +3,22 @@ class Period < ActiveRecord::Base
 	validates_presence_of :end_date
 	
 	has_many :transactions
+
+  def processed_transactions
+    transactions.select { |t| t.processed == true }.sort_by { |t| t.date }
+  end
+
+  def processed_transactions_total
+    processed_transactions.sum { |t| t.amount } || BigDecimal("0:0")
+  end
+
+  def outstanding_transactions
+    transactions.select { |t| t.processed != true }.sort_by { |t| t.date }
+  end
+
+  def outstanding_transactions_total
+    outstanding_transactions.sum { |t| t.amount } || BigDecimal("0:0")
+  end
 	
 	def total_transactions
 		transactions.sum(:amount) || BigDecimal("0:0")

@@ -1,0 +1,33 @@
+<p style="color: red"><%= flash[:error] %></p>
+<div class="span-20">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <caption><em>Outstanding Transactions</em></caption>
+    <thead>
+      <tr>
+        <th class="span-10">Transaction</th>
+        <th class="span-6">Date</th>
+        <th class="span-2">Amount</th>
+        <th class="span-1"/>
+        <th class="span-1 last"/>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="14">Total:
+          <%= number_to_currency(period.outstanding_transactions_total) %>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <% for t in period.outstanding_transactions -%>
+        <tr id="<%= dom_id(t) %>">
+          <td><%= t.description %></td>
+          <td><%= t.date %></td>
+          <td><%= number_to_currency(t.amount) %></td>
+          <td><%= link_to 'Edit', edit_transaction_path(t) %></td>
+          <td><%= link_to 'Destroy', [t], :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>
