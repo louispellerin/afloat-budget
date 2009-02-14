@@ -1,30 +1,33 @@
 <h1>Listing periods</h1>
 <hr>
-<div class="span-18">
+
+<div id="new_period">
+  <%= render :partial => 'new_period', :locals  => {:period => @period} %>
+</div>
+
+<div class="span-24">
   <table  border="0" cellspacing="0" cellpadding="0">
     <thead>
       <tr>
         <th class="span-6">Start Date</th>
         <th class="span-6">End Date</th>
-        <th class="span-4"/>
+        <th class="span-4">Transactions</th>
+        <th class="span-2">Processed</th>
+        <th class="span-2">Outstanding</th>
+        <th class="span-2">Remaining</th>
         <th class="span-1"/>
         <th class="span-1 last"/>
       </tr>
     </thead>
     <tbody>
-      <% form_for [@period] do |f| -%>
-        <tr>
-          <td><%= f.date_select :start_date %></td>
-          <td><%= f.date_select :end_date %></td>
-          <td><%= f.submit "Add" %></td>
-        </tr>
-      <% end -%>
-
       <% for period in @periods %>
         <tr>
           <td><%=h period.start_date %></td>
           <td><%=h period.end_date %></td>
           <td><%= link_to pluralize(period.transactions.size, 'transaction'), period_transactions_path(period) %></td>
+          <td><%= number_to_currency(period.processed_transactions_total) %></td>
+          <td><%= number_to_currency(period.outstanding_transactions_total) %></td>
+          <td><%= number_to_currency(period.total_transactions) %></td>
           <td><%= link_to 'Edit', edit_period_path(period) %></td>
           <td><%= link_to 'Destroy', period, :confirm => 'Are you sure?', :method => :delete %></td>
         </tr>
