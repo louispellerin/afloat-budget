@@ -1,26 +1,7 @@
-<h1>Listing transactions</h1>
-
-<table>
-  <tr>
-    <th>Description</th>
-    <th>Date</th>
-    <th>Amount</th>
-    <th>Processed</th>
-  </tr>
-
-<% for transaction in @transactions %>
-  <tr>
-    <td><%=h transaction.description %></td>
-    <td><%=h transaction.date %></td>
-    <td><%=h transaction.amount %></td>
-    <td><%=h transaction.processed %></td>
-    <td><%= link_to 'Show', transaction %></td>
-    <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-    <td><%= link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New transaction', new_transaction_path %>
+<h1>Period from <%=h @period.start_date %> to <%=h @period.end_date %></h1>
+<hr/>
+<div id="transactions">
+  <%= render :partial => 'transactions',
+    :locals  => {:transactions => @period.transactions,
+    :period => @period, :transaction => @transaction} %>
+</div>

@@ -1,7 +1,7 @@
 <h1>Editing transaction</h1>
 
 <div class="span-20">
-<% form_for(@period, @transaction) do |f| %>
+<% form_for(@transaction) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -25,7 +25,6 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @transaction %> |
-<%= link_to 'Back', transactions_path %>
+<%= link_to 'Back', period_transactions_path(@transaction.period) %>
 
 </div>

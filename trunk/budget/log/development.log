@@ -13194,3 +13194,1194 @@ ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if 
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (33.5ms)
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.6ms)
 Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-12 20:28:49) [GET]
+  [4;35;1mPeriod Load (0.9ms)[0m   [0mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/periods
+Rendering periods/index
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing PeriodsController#show (for 127.0.0.1 at 2009-02-12 20:30:48) [GET]
+  Parameters: {"id"=>"9"}
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/periods
+Rendering periods/show
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mTransaction Load (0.8ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Rendered periods/_transactions (13.2ms)
+Completed in 28ms (View: 18, DB: 1) | 200 OK [http://localhost/periods/9]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-12 20:31:07) [GET]
+  [4;36;1mRecurringTransaction Load (1.3ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/recurring_transactions
+Rendering recurring_transactions/index
+Completed in 19ms (View: 14, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-12 20:31:12) [GET]
+  [4;35;1mPeriod Load (0.9ms)[0m   [0mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/periods
+Rendering periods/index
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-14 07:39:20) [GET]
+  [4;36;1mPeriod Load (1.2ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/periods
+Rendering periods/index
+Completed in 68ms (View: 57, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing PeriodsController#show (for 127.0.0.1 at 2009-02-14 07:39:25) [GET]
+  Parameters: {"id"=>"9"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/periods
+Rendering periods/show
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mTransaction Load (0.8ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Rendered periods/_transactions (28.8ms)
+Completed in 43ms (View: 34, DB: 1) | 200 OK [http://localhost/periods/9]
+
+
+Processing TransactionsController#edit (for 127.0.0.1 at 2009-02-14 07:39:30) [GET]
+  Parameters: {"id"=>"51"}
+  [4;35;1mTransaction Load (0.3ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/edit
+
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #4 of app/views/transactions/edit.html.erb:
+1: <h1>Editing transaction</h1>
+2: 
+3: <div class="span-20">
+4: <% form_for(@period, @transaction) do |f| %>
+5:   <%= f.error_messages %>
+6: 
+7:   <p>
+
+    vendor/rails/actionpack/lib/action_controller/record_identifier.rb:76:in `dom_id'
+    vendor/rails/actionpack/lib/action_view/helpers/record_identification_helper.rb:16:in `dom_id'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:264:in `apply_form_for_options!'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:248:in `form_for'
+    app/views/transactions/edit.html.erb:4
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `send'
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:73:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:256:in `render'
+    vendor/rails/actionpack/lib/action_view/base.rb:367:in `_render_with_layout'
+    vendor/rails/actionpack/lib/action_view/base.rb:254:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1174:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1248:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (28.0ms)
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.8ms)
+Rendering /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePeriods (1)
+Migrating to CreateTransactions (2)
+Migrating to AddPeriodIdToTransactions (20090131192108)
+Migrating to CreateRecurringTransactions (20090131203357)
+Migrating to RenameStartDateInPeriod (20090207182939)
+Migrating to RenameEndDateInPeriod (20090207182947)
+Migrating to AddPeriodIdToTransaction (20090214124834)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: duplicate column name: period_id: ALTER TABLE "transactions" ADD "period_id" integer[0m
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-14 07:56:12) [GET]
+  [4;36;1mPeriod Load (0.9ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/periods
+Rendering periods/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+Completed in 23ms (View: 15, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-14 07:56:25) [GET]
+  [4;35;1mPeriod Load (0.9ms)[0m   [0mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/periods
+Rendering periods/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+Completed in 21ms (View: 14, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-14 07:56:54) [GET]
+  [4;36;1mPeriod Load (0.9ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/periods
+Rendering periods/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+Completed in 21ms (View: 14, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-14 07:57:11) [GET]
+  [4;35;1mPeriod Load (0.9ms)[0m   [0mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/periods
+Rendering periods/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+Completed in 22ms (View: 14, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-14 07:57:19) [GET]
+  Parameters: {"period_id"=>"9"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+  [4;35;1mTransaction Load (0.7ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+
+
+ActionView::TemplateError (undefined local variable or method `new_transaction_path' for #<ActionView::Base:0x22823e4>) on line #26 of app/views/transactions/index.html.erb:
+23: 
+24: <br />
+25: 
+26: <%= link_to 'New transaction', new_transaction_path %>
+
+    app/views/transactions/index.html.erb:26
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `send'
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:73:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:256:in `render'
+    vendor/rails/actionpack/lib/action_view/base.rb:367:in `_render_with_layout'
+    vendor/rails/actionpack/lib/action_view/base.rb:254:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1174:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/transactions_controller.rb:8:in `index'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (25.2ms)
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.7ms)
+Rendering /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-14 08:00:50) [GET]
+  Parameters: {"period_id"=>"9"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+  [4;35;1mTransaction Load (0.7ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+
+
+ActionView::TemplateError (undefined local variable or method `new_transaction_path' for #<ActionView::Base:0x23db420>) on line #26 of app/views/transactions/index.html.erb:
+23: 
+24: <br />
+25: 
+26: <%= link_to 'New transaction', new_transaction_path %>
+
+    app/views/transactions/index.html.erb:26
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `send'
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:73:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:256:in `render'
+    vendor/rails/actionpack/lib/action_view/base.rb:367:in `_render_with_layout'
+    vendor/rails/actionpack/lib/action_view/base.rb:254:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1174:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/transactions_controller.rb:9:in `index'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (81.6ms)
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.6ms)
+Rendering /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-14 08:01:04) [GET]
+  Parameters: {"period_id"=>"9"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mTransaction Load (0.7ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Rendered transactions/_transactions (12.7ms)
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://localhost/periods/9/transactions]
+
+
+Processing TransactionsController#edit (for 127.0.0.1 at 2009-02-14 08:02:22) [GET]
+  Parameters: {"id"=>"51"}
+  [4;35;1mTransaction Load (0.2ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/edit
+
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #4 of app/views/transactions/edit.html.erb:
+1: <h1>Editing transaction</h1>
+2: 
+3: <div class="span-20">
+4: <% form_for(@period, @transaction) do |f| %>
+5:   <%= f.error_messages %>
+6: 
+7:   <p>
+
+    vendor/rails/actionpack/lib/action_controller/record_identifier.rb:76:in `dom_id'
+    vendor/rails/actionpack/lib/action_view/helpers/record_identification_helper.rb:16:in `dom_id'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:264:in `apply_form_for_options!'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:248:in `form_for'
+    app/views/transactions/edit.html.erb:4
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `send'
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:73:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:256:in `render'
+    vendor/rails/actionpack/lib/action_view/base.rb:367:in `_render_with_layout'
+    vendor/rails/actionpack/lib/action_view/base.rb:254:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1174:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1248:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (84.0ms)
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.7ms)
+Rendering /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing TransactionsController#edit (for 127.0.0.1 at 2009-02-14 08:19:38) [GET]
+  Parameters: {"id"=>"51"}
+  [4;36;1mTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+  [4;35;1mPeriod Load (0.3ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/edit
+
+
+ActionView::TemplateError (undefined method `description' for #<Period:0x24b2358>) on line #9 of app/views/transactions/edit.html.erb:
+6: 
+7:   <p>
+8:     <%= f.label :description %><br />
+9:     <%= f.text_field :description %>
+10:   </p>
+11:   <p>
+12:     <%= f.label :date %><br />
+
+    vendor/rails/activerecord/lib/active_record/attribute_methods.rb:260:in `method_missing'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:653:in `send'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:653:in `value_before_type_cast'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:641:in `value_before_type_cast'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:560:in `to_input_field_tag'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:354:in `text_field'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:745:in `send'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:745:in `text_field'
+    app/views/transactions/edit.html.erb:9
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:313:in `fields_for'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/transactions/edit.html.erb:4
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `send'
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:73:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:256:in `render'
+    vendor/rails/actionpack/lib/action_view/base.rb:367:in `_render_with_layout'
+    vendor/rails/actionpack/lib/action_view/base.rb:254:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1174:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1248:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (27.2ms)
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.7ms)
+Rendering /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-14 08:39:19) [GET]
+  [4;36;1mPeriod Load (1.1ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/periods
+Rendering periods/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+Completed in 72ms (View: 61, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-14 08:39:21) [GET]
+  Parameters: {"period_id"=>"9"}
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mTransaction Load (0.7ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Rendered transactions/_transactions (28.4ms)
+Completed in 45ms (View: 33, DB: 1) | 200 OK [http://localhost/periods/9/transactions]
+
+
+Processing TransactionsController#edit (for 127.0.0.1 at 2009-02-14 08:39:23) [GET]
+  Parameters: {"id"=>"51"}
+  [4;36;1mTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/edit
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/transactions/51/edit]
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-14 08:39:25) [GET]
+  Parameters: {"period_id"=>"9"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mTransaction Load (0.7ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Rendered transactions/_transactions (12.5ms)
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://localhost/periods/9/transactions]
+
+
+Processing TransactionsController#edit (for 127.0.0.1 at 2009-02-14 08:39:29) [GET]
+  Parameters: {"id"=>"51"}
+  [4;35;1mTransaction Load (0.2ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/edit
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/transactions/51/edit]
+
+
+Processing TransactionsController#update (for 127.0.0.1 at 2009-02-14 08:40:21) [PUT]
+  Parameters: {"transaction"=>{"date(1i)"=>"2009", "date(2i)"=>"2", "processed"=>"0", "date(3i)"=>"1", "amount"=>"-52.5", "description"=>"Assurance Vie (Sun Life)"}, "commit"=>"Update", "authenticity_token"=>"1f6bc8926a2f32069508d8825c0627b789afd862", "id"=>"51"}
+  [4;35;1mTransaction Load (0.2ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+  [4;36;1mTransaction Update (0.4ms)[0m   [0;1mUPDATE "transactions" SET "processed" = 'f', "amount" = -52.5, "updated_at" = '2009-02-14 13:40:21' WHERE "id" = 51[0m
+  [4;35;1mPeriod Load (0.5ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Redirected to #<Period:0x21aa494>
+Completed in 21ms (DB: 1) | 302 Found [http://localhost/transactions/51]
+
+
+Processing PeriodsController#show (for 127.0.0.1 at 2009-02-14 08:40:21) [GET]
+  Parameters: {"id"=>"9"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/periods
+Rendering periods/show
+
+
+ActionView::TemplateError (Missing template periods/_transactions.erb in view path /Users/lpellerin/Development/budget/app/views:) on line #6 of app/views/periods/show.html.erb:
+3: <div id="transactions">
+4:   <%= render :partial => 'transactions',
+5:     :locals  => {:transactions => @period.transactions,
+6:     :period => @period, :transaction => @transaction} %>
+7: </div>
+
+    vendor/rails/actionpack/lib/action_view/template.rb:95:in `find_full_path'
+    vendor/rails/actionpack/lib/action_view/template.rb:16:in `initialize'
+    vendor/rails/actionpack/lib/action_view/base.rb:332:in `new'
+    vendor/rails/actionpack/lib/action_view/base.rb:332:in `_unmemoized__pick_template'
+    vendor/rails/activesupport/lib/active_support/memoizable.rb:70:in `_pick_template'
+    vendor/rails/actionpack/lib/action_view/partials.rb:199:in `_unmemoized__pick_partial_template'
+    vendor/rails/activesupport/lib/active_support/memoizable.rb:70:in `_pick_partial_template'
+    vendor/rails/actionpack/lib/action_view/partials.rb:152:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:258:in `render'
+    app/views/periods/show.html.erb:6
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `send'
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:73:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:256:in `render'
+    vendor/rails/actionpack/lib/action_view/base.rb:367:in `_render_with_layout'
+    vendor/rails/actionpack/lib/action_view/base.rb:254:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1174:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `send'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/periods_controller.rb:21:in `show'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (27.1ms)
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.8ms)
+Rendering /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing TransactionsController#update (for 127.0.0.1 at 2009-02-14 08:42:10) [PUT]
+  Parameters: {"transaction"=>{"date(1i)"=>"2009", "date(2i)"=>"2", "processed"=>"0", "date(3i)"=>"1", "amount"=>"-52.5", "description"=>"Assurance Vie (Sun Life)"}, "commit"=>"Update", "authenticity_token"=>"1f6bc8926a2f32069508d8825c0627b789afd862", "id"=>"51"}
+  [4;35;1mTransaction Load (0.2ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+  [4;35;1mTransaction Load (0.7ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Redirected to #<Transaction:0x22d2240>#<Transaction:0x22cf3b0>#<Transaction:0x22cf360>#<Transaction:0x22cf310>#<Transaction:0x22cf2c0>#<Transaction:0x22cf270>#<Transaction:0x22cf220>#<Transaction:0x22cf1d0>
+
+
+NoMethodError (undefined method `transaction_transaction_transaction_transaction_transaction_transaction_transaction_transaction_url' for #<TransactionsController:0x2331e5c>):
+    /vendor/rails/actionpack/lib/action_controller/polymorphic_routes.rb:112:in `__send__'
+    /vendor/rails/actionpack/lib/action_controller/polymorphic_routes.rb:112:in `polymorphic_url'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:628:in `url_for'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1085:in `redirect_to'
+    /app/controllers/transactions_controller.rb:67:in `update'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `custom'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `each'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    /app/controllers/transactions_controller.rb:64:in `update'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (80.6ms)
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing TransactionsController#update (for 127.0.0.1 at 2009-02-14 08:43:38) [PUT]
+  Parameters: {"transaction"=>{"date(1i)"=>"2009", "date(2i)"=>"2", "processed"=>"0", "date(3i)"=>"1", "amount"=>"-52.5", "description"=>"Assurance Vie (Sun Life)"}, "commit"=>"Update", "authenticity_token"=>"1f6bc8926a2f32069508d8825c0627b789afd862", "id"=>"51"}
+  [4;36;1mTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Redirected to #<Transaction:0x24ae53c>
+Completed in 7ms (DB: 0) | 302 Found [http://localhost/transactions/51]
+
+
+Processing TransactionsController#show (for 127.0.0.1 at 2009-02-14 08:43:38) [GET]
+  Parameters: {"id"=>"51"}
+  [4;35;1mTransaction Load (0.2ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/show
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/transactions/51]
+
+
+Processing TransactionsController#update (for 127.0.0.1 at 2009-02-14 08:46:28) [PUT]
+  Parameters: {"transaction"=>{"date(1i)"=>"2009", "date(2i)"=>"2", "processed"=>"0", "date(3i)"=>"1", "amount"=>"-52.5", "description"=>"Assurance Vie (Sun Life)"}, "commit"=>"Update", "authenticity_token"=>"1f6bc8926a2f32069508d8825c0627b789afd862", "id"=>"51"}
+  [4;36;1mTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.start_date) on line #1 of app/views/transactions/index.html.erb:
+1: <h1>Period from <%=h @period.start_date %> to <%=h @period.end_date %></h1>
+2: <hr/>
+3: <div id="transactions">
+4:   <%= render :partial => 'transactions',
+
+    app/views/transactions/index.html.erb:1
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `send'
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:73:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:256:in `render'
+    vendor/rails/actionpack/lib/action_view/base.rb:367:in `_render_with_layout'
+    vendor/rails/actionpack/lib/action_view/base.rb:254:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1174:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    app/controllers/transactions_controller.rb:67:in `update'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/transactions_controller.rb:64:in `update'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (25.5ms)
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing TransactionsController#update (for 127.0.0.1 at 2009-02-14 08:47:14) [PUT]
+  Parameters: {"transaction"=>{"date(1i)"=>"2009", "date(2i)"=>"2", "processed"=>"0", "date(3i)"=>"1", "amount"=>"-52.5", "description"=>"Assurance Vie (Sun Life)"}, "commit"=>"Update", "authenticity_token"=>"1f6bc8926a2f32069508d8825c0627b789afd862", "id"=>"51"}
+  [4;35;1mTransaction Load (0.3ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.start_date) on line #1 of app/views/transactions/index.html.erb:
+1: <h1>Period from <%=h @period.start_date %> to <%=h @period.end_date %></h1>
+2: <hr/>
+3: <div id="transactions">
+4:   <%= render :partial => 'transactions',
+
+    app/views/transactions/index.html.erb:1
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `send'
+    vendor/rails/actionpack/lib/action_view/renderable.rb:39:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:73:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:256:in `render'
+    vendor/rails/actionpack/lib/action_view/base.rb:367:in `_render_with_layout'
+    vendor/rails/actionpack/lib/action_view/base.rb:254:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1174:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:905:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    app/controllers/transactions_controller.rb:67:in `update'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:135:in `custom'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `call'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:164:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `each'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:158:in `respond'
+    vendor/rails/actionpack/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/transactions_controller.rb:64:in `update'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:617:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:524:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:134:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:392:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:142:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:153:in `require'
+    vendor/rails/railties/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_trace (25.5ms)
+Rendered /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /Users/lpellerin/Development/budget/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-14 08:52:31) [GET]
+  [4;36;1mPeriod Load (0.9ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/periods
+Rendering periods/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+Completed in 21ms (View: 14, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-14 08:52:32) [GET]
+  Parameters: {"period_id"=>"9"}
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mTransaction Load (0.7ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Rendered transactions/_transactions (70.0ms)
+Completed in 84ms (View: 75, DB: 1) | 200 OK [http://localhost/periods/9/transactions]
+
+
+Processing TransactionsController#edit (for 127.0.0.1 at 2009-02-14 08:52:39) [GET]
+  Parameters: {"id"=>"51"}
+  [4;36;1mTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/edit
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/transactions/51/edit]
+
+
+Processing TransactionsController#update (for 127.0.0.1 at 2009-02-14 08:52:43) [PUT]
+  Parameters: {"transaction"=>{"date(1i)"=>"2009", "date(2i)"=>"2", "processed"=>"0", "date(3i)"=>"1", "amount"=>"-52.5", "description"=>"Assurance Vie (Sun Life)"}, "commit"=>"Update", "authenticity_token"=>"1f6bc8926a2f32069508d8825c0627b789afd862", "id"=>"51"}
+  [4;36;1mTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Redirected to /periods/9/transactions
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/transactions/51]
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-14 08:52:43) [GET]
+  Parameters: {"period_id"=>"9"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mTransaction Load (0.7ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Rendered transactions/_transactions (12.6ms)
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://localhost/periods/9/transactions]
+
+
+Processing TransactionsController#edit (for 127.0.0.1 at 2009-02-14 08:52:45) [GET]
+  Parameters: {"id"=>"51"}
+  [4;35;1mTransaction Load (0.2ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/edit
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/transactions/51/edit]
+
+
+Processing TransactionsController#update (for 127.0.0.1 at 2009-02-14 08:52:48) [PUT]
+  Parameters: {"transaction"=>{"date(1i)"=>"2009", "date(2i)"=>"2", "processed"=>"0", "date(3i)"=>"1", "amount"=>"-62.5", "description"=>"Assurance Vie (Sun Life)"}, "commit"=>"Update", "authenticity_token"=>"1f6bc8926a2f32069508d8825c0627b789afd862", "id"=>"51"}
+  [4;35;1mTransaction Load (0.2ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+  [4;36;1mTransaction Update (0.6ms)[0m   [0;1mUPDATE "transactions" SET "amount" = -62.5, "updated_at" = '2009-02-14 13:52:48' WHERE "id" = 51[0m
+  [4;35;1mPeriod Load (0.3ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Redirected to /periods/9/transactions
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/transactions/51]
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-14 08:52:48) [GET]
+  Parameters: {"period_id"=>"9"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mTransaction Load (0.7ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Rendered transactions/_transactions (68.9ms)
+Completed in 83ms (View: 73, DB: 1) | 200 OK [http://localhost/periods/9/transactions]
+
+
+Processing TransactionsController#edit (for 127.0.0.1 at 2009-02-14 08:52:53) [GET]
+  Parameters: {"id"=>"51"}
+  [4;35;1mTransaction Load (0.2ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+Rendering template within layouts/transactions
+Rendering transactions/edit
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/transactions/51/edit]
+
+
+Processing TransactionsController#update (for 127.0.0.1 at 2009-02-14 08:53:00) [PUT]
+  Parameters: {"transaction"=>{"date(1i)"=>"2009", "date(2i)"=>"2", "processed"=>"1", "date(3i)"=>"1", "amount"=>"-72.5", "description"=>"Assurance Vie (Sun Life)"}, "commit"=>"Update", "authenticity_token"=>"1f6bc8926a2f32069508d8825c0627b789afd862", "id"=>"51"}
+  [4;35;1mTransaction Load (0.2ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions"."id" = 51) [0m
+  [4;36;1mTransaction Update (0.3ms)[0m   [0;1mUPDATE "transactions" SET "processed" = 't', "amount" = -72.5, "updated_at" = '2009-02-14 13:53:00' WHERE "id" = 51[0m
+  [4;35;1mPeriod Load (0.4ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Redirected to /periods/9/transactions
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/transactions/51]
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-14 08:53:00) [GET]
+  Parameters: {"period_id"=>"9"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 9) [0m
+Rendering template within layouts/transactions
+Rendering transactions/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mTransaction Load (0.7ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+Rendered transactions/_transactions (12.4ms)
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://localhost/periods/9/transactions]
