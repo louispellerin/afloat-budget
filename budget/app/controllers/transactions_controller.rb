@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
   def index
     @period = Period.find(params[:period_id])
     @transactions = @period.transactions
+    @transaction = Transaction.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -58,13 +59,12 @@ class TransactionsController < ApplicationController
   # PUT /transactions/1
   # PUT /transactions/1.xml
   def update
-    @period = Period.find(params[:period_id])
     @transaction = Transaction.find(params[:id])
 
     respond_to do |format|
       if @transaction.update_attributes(params[:transaction])
         flash[:notice] = 'Transaction was successfully updated.'
-        format.html { redirect_to(@period) }
+        format.html { redirect_to(period_transactions_path(@transaction.period)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
