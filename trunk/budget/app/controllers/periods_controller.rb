@@ -16,10 +16,9 @@ class PeriodsController < ApplicationController
   # GET /periods/1.xml
   def show
     @period = Period.find(params[:id])
-    @transaction = Transaction.new
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { redirect_to(period_transactions_path(@period)) }
       format.xml  { render :xml => @period }
     end
   end

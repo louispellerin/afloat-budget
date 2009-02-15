@@ -1,5 +1,4 @@
-<h1>Period from <%=h @period.start_date %> to <%=h @period.end_date %></h1>
-<hr/>
+<% title "Period from " + @period.start_date.to_s + " to " + @period.end_date.to_s %>
 
 <h3>Remaining Total: <%= number_to_currency(@period.total_transactions) %></h3>
 
