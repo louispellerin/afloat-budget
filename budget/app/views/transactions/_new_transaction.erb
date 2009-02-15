@@ -1,21 +1,21 @@
-<div class="span-20">
+<div class="span-26">
   <table border="0" cellspacing="0" cellpadding="0">
     <caption><em>Add a transaction to this period</em></caption>
     <thead>
       <tr>
-        <th class="span-9">Transaction</th>
+        <th class="span-10">Transaction</th>
         <th class="span-6">Date</th>
         <th class="span-2">Amount</th>
-        <th class="span-1">Processed</th>
-        <th class="span-1 last"/>
+        <th class="span-2">Processed</th>
+        <th class="span-2 last"/>
       </tr>
     </thead>
     <tbody>
       <% form_for [period, transaction] do |f| -%>
         <tr>
-          <td><%= f.text_field :description, :class => "text span-6" %></td>
+          <td><%= f.text_field :description, :class => "text span-9" %></td>
           <td><%= f.date_select :date, :class => "span-6"%></td>
-          <td><%= f.text_field :amount, :class => "text span-2" %></td>
+          <td class="right"><%= f.text_field :amount, :class => "text span-2" %></td>
           <td><%= f.check_box :processed %></td>
           <td><%= f.submit "Add" %></td>
         </tr>

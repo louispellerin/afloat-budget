@@ -1,7 +1,0 @@
-<h1>Period from <%=h @period.start_date %> to <%=h @period.end_date %></h1>
-<hr/>
-<div id="transactions">
-  <%= render :partial => 'transactions',
-    :locals  => {:transactions => @period.transactions,
-    :period => @period, :transaction => @transaction} %>
-</div>

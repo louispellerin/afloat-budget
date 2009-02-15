@@ -1,0 +1,19 @@
+/* 
+    Document   : budget
+    Created on : 15 févr. 2009, 07:22:12
+    Author     : lpellerin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+td.right { text-align:right; }
+
