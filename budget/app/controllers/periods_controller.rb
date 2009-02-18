@@ -48,10 +48,11 @@ class PeriodsController < ApplicationController
 
     respond_to do |format|
       if @period.save
-        flash[:notice] = 'Period was successfully created.'
+        flash[:success] = 'Period was successfully created.'
         format.html { redirect_to(periods_url) }
         format.xml  { render :xml => @period, :status => :created, :location => @period }
       else
+        flash[:error] = @period.errors.full_messages.to_sentence
         format.html { render :action => "new" }
         format.xml  { render :xml => @period.errors, :status => :unprocessable_entity }
       end
@@ -65,10 +66,11 @@ class PeriodsController < ApplicationController
 
     respond_to do |format|
       if @period.update_attributes(params[:period])
-        flash[:notice] = 'Period was successfully updated.'
+        flash[:success] = 'Period was successfully updated.'
         format.html { redirect_to(@period) }
         format.xml  { head :ok }
       else
+        flash[:error] = @period.errors.full_messages.to_sentence
         format.html { render :action => "edit" }
         format.xml  { render :xml => @period.errors, :status => :unprocessable_entity }
       end
@@ -82,6 +84,7 @@ class PeriodsController < ApplicationController
     @period.destroy
 
     respond_to do |format|
+      flash[:success] = 'Period was successfully deleted.'
       format.html { redirect_to(periods_url) }
       format.xml  { head :ok }
     end
