@@ -3,6 +3,7 @@ class RecurringTransactionsController < ApplicationController
   # GET /recurring_transactions.xml
   def index
     @recurring_transactions = RecurringTransaction.find(:all)
+    @recurring_transaction = RecurringTransaction.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,12 +45,12 @@ class RecurringTransactionsController < ApplicationController
 
     respond_to do |format|
       if @recurring_transaction.save
-        flash[:succes] = 'Recurring transaction was successfully created.'
-        format.html { redirect_to(@recurring_transaction) }
+        flash[:success] = 'Recurring transaction was successfully created.'
+        format.html { redirect_to(recurring_transactions_url) }
         format.xml  { render :xml => @recurring_transaction, :status => :created, :location => @recurring_transaction }
       else
         flash[:error] = @recurring_transaction.errors.full_messages.to_sentence
-        format.html { render :action => "new" }
+        format.html { redirect_to(recurring_transactions_url) }
         format.xml  { render :xml => @recurring_transaction.errors, :status => :unprocessable_entity }
       end
     end
@@ -63,7 +64,7 @@ class RecurringTransactionsController < ApplicationController
     respond_to do |format|
       if @recurring_transaction.update_attributes(params[:recurring_transaction])
         flash[:success] = 'Recurring transaction was successfully updated.'
-        format.html { redirect_to(@recurring_transaction) }
+        format.html { redirect_to(recurring_transactions_url) }
         format.xml  { head :ok }
       else
         flash[:error] = @recurring_transaction.errors.full_messages.to_sentence
