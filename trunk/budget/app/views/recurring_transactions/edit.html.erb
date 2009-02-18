@@ -5,24 +5,21 @@
 
   <p>
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
+    <%= f.text_field :description, :class => "text span-10" %>
   </p>
   <p>
     <%= f.label :base_date %><br />
     <%= f.date_select :base_date %>
   </p>
   <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount, :class => "text span-3" %>
+  </p>
+  <p>
     <%= f.label :frequency %><br />
-    <%= f.text_field :frequency %>
+    <%= f.text_field :frequency, :class => "text span-1" %>
   </p>
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @recurring_transaction %> |
-<%= link_to 'Back', recurring_transactions_path %>

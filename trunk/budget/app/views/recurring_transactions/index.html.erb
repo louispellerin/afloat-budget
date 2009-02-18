@@ -1,26 +1,54 @@
 <% title "Recurring Transactions" %>
 
-<table>
-  <tr>
-    <th>Description</th>
-    <th>Amount</th>
-    <th>Base date</th>
-    <th>Frequency</th>
-  </tr>
+<div class="span-24">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <caption><em>Add a recurring transaction</em></caption>
+    <thead>
+      <tr>
+        <th class="span-8">Description</th>
+        <th class="span-6">Base Date</th>
+        <th class="span-3 right">Amount</th>
+        <th class="span-2 right">Frequency</th>
+        <th class="last"/>
+      </tr>
+    </thead>
+    <tbody>
+      <% form_for [@recurring_transaction] do |f| -%>
+        <tr>
+          <td><%= f.text_field :description, :class => "text span-8" %></td>
+          <td><%= f.date_select :base_date%></td>
+          <td class="right"><%= f.text_field :amount, :class => "text span-2" %></td>
+          <td class="right"><%= f.text_field :frequency, :class => "text span-1" %></td>
+          <td><%= f.submit "Add" %></td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>
 
-<% for recurring_transaction in @recurring_transactions %>
-  <tr>
-    <td><%=h recurring_transaction.description %></td>
-    <td><%=h recurring_transaction.amount %></td>
-    <td><%=h recurring_transaction.base_date %></td>
-    <td><%=h recurring_transaction.frequency %></td>
-    <td><%= link_to 'Show', recurring_transaction %></td>
-    <td><%= link_to 'Edit', edit_recurring_transaction_path(recurring_transaction) %></td>
-    <td><%= link_to 'Destroy', recurring_transaction, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New recurring_transaction', new_recurring_transaction_path %>
+<div class="span-24">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th class="span-8">Description</th>
+        <th class="span-6">Base Date</th>
+        <th class="span-3 right">Amount</th>        
+        <th class="span-2">Frequency</th>
+        <th class="span-1"/>
+        <th class="last"/>
+      </tr>
+    </thead>
+    <tbody>
+      <% for recurring_transaction in @recurring_transactions %>
+        <tr>
+          <td><%=h recurring_transaction.description %></td>
+          <td><%=h recurring_transaction.base_date %></td>
+          <td class="right"><%=h recurring_transaction.amount %></td>
+          <td class="center"><%=h recurring_transaction.frequency %></td>
+          <td><%= link_to 'Edit', edit_recurring_transaction_path(recurring_transaction) %></td>
+          <td><%= link_to 'Destroy', recurring_transaction, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

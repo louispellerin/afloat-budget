@@ -19211,3 +19211,359 @@ Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20
 Rendering template within layouts/application
 Rendering recurring_transactions/index
 Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:44:58) [GET]
+  [4;36;1mRecurringTransaction Load (1.2ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 17, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:45:18) [GET]
+  [4;35;1mRecurringTransaction Load (1.2ms)[0m   [0mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 80ms (View: 74, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:45:54) [GET]
+  [4;36;1mRecurringTransaction Load (1.3ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:46:10) [GET]
+  [4;35;1mRecurringTransaction Load (1.3ms)[0m   [0mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 26ms (View: 19, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:46:30) [GET]
+  [4;36;1mRecurringTransaction Load (1.3ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:46:54) [GET]
+  [4;35;1mRecurringTransaction Load (1.3ms)[0m   [0mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:47:20) [GET]
+  [4;36;1mRecurringTransaction Load (1.3ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 76ms (View: 70, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#create (for 127.0.0.1 at 2009-02-17 20:47:32) [POST]
+  Parameters: {"commit"=>"Add", "authenticity_token"=>"5ba006d5023fa3752e435b98a930a4702218230b", "recurring_transaction"=>{"base_date(3i)"=>"18", "amount"=>"100", "description"=>"test", "base_date(1i)"=>"2009", "frequency"=>"2", "base_date(2i)"=>"2"}}
+  [4;35;1mRecurringTransaction Create (0.3ms)[0m   [0mINSERT INTO "recurring_transactions" ("updated_at", "description", "amount", "base_date", "frequency", "created_at") VALUES('2009-02-18 01:47:32', 'test', 100.0, '2009-02-18', 2, '2009-02-18 01:47:32')[0m
+Redirected to #<RecurringTransaction:0x24d1528>
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#show (for 127.0.0.1 at 2009-02-17 20:47:32) [GET]
+  Parameters: {"id"=>"16"}
+  [4;36;1mRecurringTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 16) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/show
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/recurring_transactions/16]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:47:37) [GET]
+  [4;35;1mRecurringTransaction Load (1.3ms)[0m   [0mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 23ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#destroy (for 127.0.0.1 at 2009-02-17 20:47:41) [DELETE]
+  Parameters: {"authenticity_token"=>"5ba006d5023fa3752e435b98a930a4702218230b", "id"=>"16"}
+  [4;36;1mRecurringTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 16) [0m
+  [4;35;1mRecurringTransaction Destroy (0.3ms)[0m   [0mDELETE FROM "recurring_transactions" WHERE "id" = 16[0m
+Redirected to http://localhost:3000/recurring_transactions
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/recurring_transactions/16]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:47:41) [GET]
+  [4;36;1mRecurringTransaction Load (1.3ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:50:09) [GET]
+  [4;35;1mRecurringTransaction Load (1.2ms)[0m   [0mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#create (for 127.0.0.1 at 2009-02-17 20:50:15) [POST]
+  Parameters: {"commit"=>"Add", "authenticity_token"=>"5ba006d5023fa3752e435b98a930a4702218230b", "recurring_transaction"=>{"base_date(3i)"=>"18", "amount"=>"12", "description"=>"test", "base_date(1i)"=>"2009", "frequency"=>"2", "base_date(2i)"=>"2"}}
+  [4;36;1mRecurringTransaction Create (0.3ms)[0m   [0;1mINSERT INTO "recurring_transactions" ("updated_at", "description", "amount", "base_date", "frequency", "created_at") VALUES('2009-02-18 01:50:15', 'test', 12.0, '2009-02-18', 2, '2009-02-18 01:50:15')[0m
+Redirected to http://localhost:3000/recurring_transactions
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:50:15) [GET]
+  [4;35;1mRecurringTransaction Load (1.5ms)[0m   [0mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#destroy (for 127.0.0.1 at 2009-02-17 20:50:23) [DELETE]
+  Parameters: {"authenticity_token"=>"5ba006d5023fa3752e435b98a930a4702218230b", "id"=>"17"}
+  [4;36;1mRecurringTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 17) [0m
+  [4;35;1mRecurringTransaction Destroy (0.3ms)[0m   [0mDELETE FROM "recurring_transactions" WHERE "id" = 17[0m
+Redirected to http://localhost:3000/recurring_transactions
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/recurring_transactions/17]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:50:23) [GET]
+  [4;36;1mRecurringTransaction Load (1.3ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#create (for 127.0.0.1 at 2009-02-17 20:50:43) [POST]
+  Parameters: {"commit"=>"Add", "authenticity_token"=>"5ba006d5023fa3752e435b98a930a4702218230b", "recurring_transaction"=>{"base_date(3i)"=>"18", "amount"=>"1", "description"=>"test", "base_date(1i)"=>"2009", "frequency"=>"1", "base_date(2i)"=>"2"}}
+  [4;35;1mRecurringTransaction Create (0.3ms)[0m   [0mINSERT INTO "recurring_transactions" ("updated_at", "description", "amount", "base_date", "frequency", "created_at") VALUES('2009-02-18 01:50:43', 'test', 1.0, '2009-02-18', 1, '2009-02-18 01:50:43')[0m
+Redirected to http://localhost:3000/recurring_transactions
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:50:43) [GET]
+  [4;36;1mRecurringTransaction Load (1.3ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#destroy (for 127.0.0.1 at 2009-02-17 20:50:50) [DELETE]
+  Parameters: {"authenticity_token"=>"5ba006d5023fa3752e435b98a930a4702218230b", "id"=>"18"}
+  [4;35;1mRecurringTransaction Load (0.2ms)[0m   [0mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 18) [0m
+  [4;36;1mRecurringTransaction Destroy (0.3ms)[0m   [0;1mDELETE FROM "recurring_transactions" WHERE "id" = 18[0m
+Redirected to http://localhost:3000/recurring_transactions
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/recurring_transactions/18]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:50:50) [GET]
+  [4;35;1mRecurringTransaction Load (1.3ms)[0m   [0mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:50:55) [GET]
+  [4;36;1mRecurringTransaction Load (1.3ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#edit (for 127.0.0.1 at 2009-02-17 20:51:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecurringTransaction Load (0.2ms)[0m   [0mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/edit
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/recurring_transactions/1/edit]
+
+
+Processing RecurringTransactionsController#edit (for 127.0.0.1 at 2009-02-17 20:51:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecurringTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/edit
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/recurring_transactions/1/edit]
+
+
+Processing RecurringTransactionsController#edit (for 127.0.0.1 at 2009-02-17 20:53:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecurringTransaction Load (0.2ms)[0m   [0mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/edit
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/recurring_transactions/1/edit]
+
+
+Processing RecurringTransactionsController#edit (for 127.0.0.1 at 2009-02-17 20:53:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecurringTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/edit
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/recurring_transactions/1/edit]
+
+
+Processing RecurringTransactionsController#edit (for 127.0.0.1 at 2009-02-17 20:53:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecurringTransaction Load (0.3ms)[0m   [0mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/edit
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/recurring_transactions/1/edit]
+
+
+Processing RecurringTransactionsController#edit (for 127.0.0.1 at 2009-02-17 20:54:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecurringTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/edit
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/recurring_transactions/1/edit]
+
+
+Processing RecurringTransactionsController#edit (for 127.0.0.1 at 2009-02-17 20:54:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecurringTransaction Load (0.2ms)[0m   [0mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/edit
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/recurring_transactions/1/edit]
+
+
+Processing RecurringTransactionsController#edit (for 127.0.0.1 at 2009-02-17 20:54:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecurringTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/edit
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/recurring_transactions/1/edit]
+
+
+Processing RecurringTransactionsController#update (for 127.0.0.1 at 2009-02-17 20:55:00) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"5ba006d5023fa3752e435b98a930a4702218230b", "id"=>"1", "recurring_transaction"=>{"base_date(3i)"=>"1", "amount"=>"1779", "description"=>"Salaire", "base_date(1i)"=>"2009", "frequency"=>"2", "base_date(2i)"=>"1"}}
+  [4;35;1mRecurringTransaction Load (0.2ms)[0m   [0mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+  [4;36;1mRecurringTransaction Update (0.3ms)[0m   [0;1mUPDATE "recurring_transactions" SET "amount" = 1779.0, "updated_at" = '2009-02-18 01:55:00' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/recurring_transactions
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/recurring_transactions/1]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:55:00) [GET]
+  [4;35;1mRecurringTransaction Load (1.3ms)[0m   [0mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#edit (for 127.0.0.1 at 2009-02-17 20:55:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecurringTransaction Load (0.2ms)[0m   [0;1mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/edit
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/recurring_transactions/1/edit]
+
+
+Processing RecurringTransactionsController#update (for 127.0.0.1 at 2009-02-17 20:55:07) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"5ba006d5023fa3752e435b98a930a4702218230b", "id"=>"1", "recurring_transaction"=>{"base_date(3i)"=>"1", "amount"=>"1778", "description"=>"Salaire", "base_date(1i)"=>"2009", "frequency"=>"2", "base_date(2i)"=>"1"}}
+  [4;35;1mRecurringTransaction Load (0.2ms)[0m   [0mSELECT * FROM "recurring_transactions" WHERE ("recurring_transactions"."id" = 1) [0m
+  [4;36;1mRecurringTransaction Update (0.3ms)[0m   [0;1mUPDATE "recurring_transactions" SET "amount" = 1778.0, "updated_at" = '2009-02-18 01:55:07' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/recurring_transactions
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/recurring_transactions/1]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:55:07) [GET]
+  [4;35;1mRecurringTransaction Load (1.3ms)[0m   [0mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing RecurringTransactionsController#index (for 127.0.0.1 at 2009-02-17 20:55:44) [GET]
+  [4;36;1mRecurringTransaction Load (1.3ms)[0m   [0;1mSELECT * FROM "recurring_transactions" [0m
+Rendering template within layouts/application
+Rendering recurring_transactions/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/recurring_transactions]
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-17 20:55:56) [GET]
+  Parameters: {"period_id"=>"10"}
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" WHERE ("periods"."id" = 10) [0m
+Rendering template within layouts/application
+Rendering transactions/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+Rendered transactions/_new_transaction (3.3ms)
+  [4;35;1mTransaction Load (1.6ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+Rendered transactions/_processed_transactions (12.2ms)
+Rendered transactions/_outstanding_transactions (6.0ms)
+Completed in 41ms (View: 31, DB: 2) | 200 OK [http://localhost/periods/10/transactions]
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-17 20:55:59) [GET]
+  [4;36;1mPeriod Load (0.9ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/application
+Rendering periods/index
+Rendered periods/_new_period (61.8ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+  [4;35;1mTransaction Load (1.5ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mTransaction Load (0.7ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;35;1mTransaction Load (0.9ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+  [4;36;1mTransaction Load (0.9ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+Completed in 99ms (View: 87, DB: 7) | 200 OK [http://localhost/periods/]
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-17 20:57:30) [GET]
+  [4;36;1mPeriod Load (1.0ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/application
+Rendering periods/index
+Rendered periods/_new_period (4.9ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+  [4;35;1mTransaction Load (1.4ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mTransaction Load (0.6ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;35;1mTransaction Load (0.9ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+  [4;36;1mTransaction Load (0.9ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+Completed in 44ms (View: 31, DB: 6) | 200 OK [http://localhost/periods/]
+
+
+Processing PeriodsController#index (for 127.0.0.1 at 2009-02-17 20:57:44) [GET]
+  [4;36;1mPeriod Load (0.9ms)[0m   [0;1mSELECT * FROM "periods" ORDER BY start_date DESC[0m
+  [4;35;1mPeriod Load (0.2ms)[0m   [0mSELECT * FROM "periods" ORDER BY periods.id DESC LIMIT 1[0m
+Rendering template within layouts/application
+Rendering periods/index
+Rendered periods/_new_period (5.2ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+  [4;35;1mTransaction Load (1.4ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mTransaction Load (0.6ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 9) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;35;1mTransaction Load (0.9ms)[0m   [0mSELECT * FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 7) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+  [4;36;1mTransaction Load (0.9ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 6) [0m
+Completed in 43ms (View: 30, DB: 7) | 200 OK [http://localhost/periods/]
+
+
+Processing TransactionsController#index (for 127.0.0.1 at 2009-02-17 20:57:46) [GET]
+  Parameters: {"period_id"=>"10"}
+  [4;36;1mPeriod Load (0.2ms)[0m   [0;1mSELECT * FROM "periods" WHERE ("periods"."id" = 10) [0m
+Rendering template within layouts/application
+Rendering transactions/index
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT sum("transactions".amount) AS sum_amount FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+Rendered transactions/_new_transaction (3.3ms)
+  [4;36;1mTransaction Load (1.5ms)[0m   [0;1mSELECT * FROM "transactions" WHERE ("transactions".period_id = 10) [0m
+Rendered transactions/_processed_transactions (12.2ms)
+Rendered transactions/_outstanding_transactions (5.8ms)
+Completed in 40ms (View: 31, DB: 2) | 200 OK [http://localhost/periods/10/transactions]
