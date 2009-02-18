@@ -47,7 +47,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        flash[:notice] = 'Transaction was successfully created.'
+        flash[:success] = 'Transaction was successfully created.'
         format.html { redirect_to(period_transactions_path(@transaction.period)) }
       else
         flash[:error] = @transaction.errors.full_messages.to_sentence
@@ -63,10 +63,11 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.update_attributes(params[:transaction])
-        flash[:notice] = 'Transaction was successfully updated.'
+        flash[:success] = 'Transaction was successfully updated.'
         format.html { redirect_to(period_transactions_path(@transaction.period)) }
         format.xml  { head :ok }
       else
+        flash[:error] = @transaction.errors.full_messages.to_sentence
         format.html { render :action => "edit" }
         format.xml  { render :xml => @transaction.errors, :status => :unprocessable_entity }
       end
@@ -81,6 +82,7 @@ class TransactionsController < ApplicationController
     @transaction.destroy
 
     respond_to do |format|
+      flash[:success] = 'Transaction was successfully deleted.'
       format.html { redirect_to(period_transactions_path(@period)) }
       format.xml  { head :ok }
     end

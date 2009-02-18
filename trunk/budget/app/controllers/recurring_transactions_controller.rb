@@ -44,10 +44,11 @@ class RecurringTransactionsController < ApplicationController
 
     respond_to do |format|
       if @recurring_transaction.save
-        flash[:notice] = 'RecurringTransaction was successfully created.'
+        flash[:succes] = 'Recurring transaction was successfully created.'
         format.html { redirect_to(@recurring_transaction) }
         format.xml  { render :xml => @recurring_transaction, :status => :created, :location => @recurring_transaction }
       else
+        flash[:error] = @recurring_transaction.errors.full_messages.to_sentence
         format.html { render :action => "new" }
         format.xml  { render :xml => @recurring_transaction.errors, :status => :unprocessable_entity }
       end
@@ -61,10 +62,11 @@ class RecurringTransactionsController < ApplicationController
 
     respond_to do |format|
       if @recurring_transaction.update_attributes(params[:recurring_transaction])
-        flash[:notice] = 'RecurringTransaction was successfully updated.'
+        flash[:success] = 'Recurring transaction was successfully updated.'
         format.html { redirect_to(@recurring_transaction) }
         format.xml  { head :ok }
       else
+        flash[:error] = @recurring_transaction.errors.full_messages.to_sentence
         format.html { render :action => "edit" }
         format.xml  { render :xml => @recurring_transaction.errors, :status => :unprocessable_entity }
       end
@@ -78,6 +80,7 @@ class RecurringTransactionsController < ApplicationController
     @recurring_transaction.destroy
 
     respond_to do |format|
+      flash[:success] = 'Recurring transaction was successfully deleted.'
       format.html { redirect_to(recurring_transactions_url) }
       format.xml  { head :ok }
     end
