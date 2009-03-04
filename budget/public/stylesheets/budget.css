@@ -21,3 +21,9 @@ th.right { text-align:right; }
 
 td.center { text-align:center; }
 
+td a.button
+{
+    margin:0 0 0 0 !important;
+    float:right !important;
+}
+
