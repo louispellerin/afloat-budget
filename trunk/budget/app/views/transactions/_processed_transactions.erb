@@ -6,7 +6,6 @@
         <th class="span-8">Transaction</th>
         <th class="span-6">Date</th>
         <th class="span-3 right">Amount</th>
-        <th class="span-1"/>
         <th class="last"/>
       </tr>
     </thead>
@@ -25,8 +24,16 @@
           <td><%= t.description %></td>
           <td><%= t.date %></td>
           <td class="right"><%= number_to_currency(t.amount) %></td>
-          <td><%= link_to 'Edit', edit_transaction_path(t) %></td>
-          <td><%= link_to 'Destroy', [t], :confirm => 'Are you sure?', :method => :delete %></td>
+          <td>
+            <% link_to [t], :confirm => 'Are you sure?',
+              :method => :delete, :class => "button negative" do %>
+              <img src="/stylesheets/blueprint/blueprint/plugins/buttons/icons/cross.png" alt=""/>Delete
+            <% end %>
+            <% link_to edit_transaction_path(t), :class => "button" do %>
+              <img src="/stylesheets/blueprint/blueprint/plugins/buttons/icons/page_white_edit.png" alt=""/>Edit
+            <% end %>
+          </td>
+
         </tr>
       <% end -%>
     </tbody>
