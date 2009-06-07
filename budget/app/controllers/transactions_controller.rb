@@ -87,4 +87,18 @@ class TransactionsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  # GET /transactions/1/processed
+  def processed
+    @transaction = Transaction.find(params[:id])
+    @period = @transaction.period
+    @transaction.processed = true
+    @transaction.save
+
+    respond_to do |format|
+      flash[:success] = 'Transaction was marked as processed.'
+      format.html { redirect_to(period_transactions_path(@period)) }
+      format.xml  { head :ok }
+    end
+  end
 end

@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :recurring_transactions
   map.resources :periods, :has_many => :transactions, :shallow => true
   map.resources :transactions, :only => [:index]
+  map.connect ':controller/:action/:id'
   map.root :periods
 
   # The priority is based upon order of creation: first created -> highest priority.
